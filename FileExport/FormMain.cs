@@ -62,9 +62,7 @@ namespace FileExport
 
         private void textBoxFiles_DragDrop(object sender, DragEventArgs e)
         {
-            var data = e.Data.GetData(DataFormats.FileDrop) as string[];
-
-            if ((data == null) || (data.Length < 1))
+            if (!(e.Data.GetData(DataFormats.FileDrop) is string[] data) || (data.Length < 1))
             {
                 return;
             }

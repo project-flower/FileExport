@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -48,14 +50,14 @@ namespace FileExport
                 return;
             }
 
-            string[] fileNames = textBoxFiles.Lines;
+            IEnumerable<string> fileNames = textBoxFiles.Lines.Where(n => !string.IsNullOrEmpty(n));
 
-            if ((fileNames == null) || (fileNames.Length < 1))
+            if (fileNames.Count() < 1)
             {
                 return;
             }
 
-            effecs = labelExport.DoDragDrop(new DataObject(DataFormats.FileDrop, fileNames), DragDropEffects.All);
+            effecs = labelExport.DoDragDrop(new DataObject(DataFormats.FileDrop, fileNames.ToArray()), DragDropEffects.All);
         }
 
         private void textBoxFiles_DragDrop(object sender, DragEventArgs e)

@@ -29,6 +29,7 @@ namespace FileExport
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.labelFileNames = new System.Windows.Forms.Label();
             this.textBoxFiles = new System.Windows.Forms.TextBox();
             this.labelExport = new System.Windows.Forms.Label();
@@ -84,6 +85,7 @@ namespace FileExport
             this.Controls.Add(this.labelExport);
             this.Controls.Add(this.textBoxFiles);
             this.Controls.Add(this.labelFileNames);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "FileExport";
             this.ResumeLayout(false);
